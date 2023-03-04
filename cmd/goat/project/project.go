@@ -38,7 +38,7 @@ func LoadConfigFromCLI() (*Project, error) {
 	err := survey.AskOne(
 		&survey.Input{
 			Message: "请输入项目包名称:",
-			Default: "gitee.com/go-course/goat-demo",
+			Default: "github.com/opengoats/goat-demo",
 		},
 		&p.PKG,
 		survey.WithValidator(survey.Required),

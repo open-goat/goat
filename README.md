@@ -21,22 +21,24 @@
 
 首先你需要安装goat, 所有的功能都集成到这个CLI工具上了
 ```sh
-$ go install github.com/opengoats/goat/cmd/goat 
+$ go install github.com/opengoats/goat/cmd/goat@latest
 ```
 
 按照完成后, 通过help指令查看基本使用方法
 ```
 $ goat -h
-goat ...
+goat 分布式服务构建工具
 
 Usage:
   goat [flags]
   goat [command]
 
 Available Commands:
-  enum        枚举生成器
+  completion  Generate the autocompletion script for the specified shell
+  generate    代码生成器
   help        Help about any command
-  init        初始化
+  project     项目初始化工具
+  proto       项目protobuf管理类工具
 
 Flags:
   -h, --help      help for goat
@@ -46,37 +48,78 @@ Use "goat [command] --help" for more information about a command.
 ```
 
 goat提供项目初始化能力, 利用goat提供的工具箱, 快速组装出一个接近生产级别的应用(使用请看README):
+
 ```sh
 $ mkdir demo && cd demo
-$ goat init
-? 请输入项目包名称: github.com/opengoats/demo
-? 请输入项目描述: 项目描述,会生成到CLI和READMD.md中
+$ goat project init
+? 请输入项目包名称: (github.com/opengoats/goat-demo) github.com/opengoats/cmdb
+
+? 请输入项目包名称: github.com/opengoats/cmdb
+? 请输入项目描述: 多云资产管理平台
+
+? 请输入项目描述: 多云资产管理平台
+? 是否接入权限中心[keyauth] No     
+? 选择数据库类型: MySQL
+? MySQL服务地址: (127.0.0.1:3306) 192.168.10.10
+
+? MySQL服务地址: 192.168.10.10
+? 数据库名称: cmdb
+? 数据库名称: cmdb
+? 生成样例代码 Yes
+? 选择HTTP框架: go-restful
 项目初始化完成, 项目结构如下: 
-├───.gitignore (269b)
-├───Makefile (1212b)
-├───README.md (894b)
-├───api
-│       └───api.go (3768b)
+├───.gitignore (307b)
+├───.goat.yaml (208b)
+├───.vscode
+│       └───settings.json (242b)
+├───README.md (4315b)
+├───apps
+│       ├───all
+│       │       ├───api.go (142b)
+│       │       ├───impl.go (173b)
+│       │       └───internal.go (111b)
+│       └───book
+│               ├───api
+│               │       ├───book.go (2335b)
+│               │       └───http.go (2313b)
+│               ├───app.go (2322b)
+│               ├───impl
+│               │       ├───book.go (4131b)
+│               │       ├───dao.go (765b)
+│               │       ├───impl.go (806b)
+│               │       └───sql.go (337b)
+│               └───pb
+│                       └───book.proto (2435b)
+├───client
+│       ├───client.go (1026b)
+│       ├───client_test.go (657b)
+│       └───config.go (172b)
 ├───cmd
-│       ├───root.go (888b)
-│       └───service.go (4036b)
+│       ├───init.go (1264b)
+│       ├───root.go (1322b)
+│       └───start.go (3929b)
 ├───conf
-│       ├───config.go (3222b)
-│       ├───load.go (720b)
-│       └───log.go (365b)
+│       ├───config.go (4062b)
+│       ├───load.go (759b)
+│       └───log.go (385b)
+├───docs
+│       ├───README.md (16b)
+│       └───schema
+│               └───tables.sql (860b)
 ├───etc
-│       ├───demo.env (149b)
-│       └───demo.toml (237b)
-├───go.mod (43b)
-├───main.go (90b)
-├───pkg
-│       ├───auther.go (345b)
-│       ├───http.go (1224b)
-│       └───service.go (865b)
-├───script
-│       └───build.sh (3378b)
+│       ├───config.env (487b)
+│       ├───config.toml (328b)
+│       └───unit_test.env (17b)
+├───go.mod (32b)
+├───main.go (97b)
+├───makefile (2998b)
+├───protocol
+│       ├───grpc.go (1394b)
+│       └───http.go (3008b)
+├───swagger
+│       └───docs.go (744b)
 └───version
-        └───version.go (566b)
+        └───version.go (661b)
 ```
 
 启用看一看
