@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/open-goat/goat/http/response"
+	"github.com/opengoats/goat/http/response"
 	"github.com/stretchr/testify/require"
 )
 

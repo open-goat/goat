@@ -1,9 +1,9 @@
 package client
 
 import (
-	kc "github.com/open-goat/keyauth/client"
-	"github.com/open-goat/goat/logger"
-	"github.com/open-goat/goat/logger/zap"
+	kc "github.com/opengoats/keyauth/client"
+	"github.com/opengoats/goat/logger"
+	"github.com/opengoats/goat/logger/zap"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 

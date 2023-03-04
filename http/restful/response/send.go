@@ -4,9 +4,9 @@ import (
 	"net/http"
 
 	"github.com/emicklei/go-restful/v3"
-	"github.com/open-goat/goat/exception"
-	"github.com/open-goat/goat/http/response"
-	"github.com/open-goat/goat/logger/zap"
+	"github.com/opengoats/goat/exception"
+	"github.com/opengoats/goat/http/response"
+	"github.com/opengoats/goat/logger/zap"
 )
 
 // Failed use to response error messge

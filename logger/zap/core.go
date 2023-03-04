@@ -15,8 +15,8 @@ import (
 	"go.uber.org/zap/zapcore"
 	"go.uber.org/zap/zaptest/observer"
 
-	"github.com/open-goat/goat/file"
-	"github.com/open-goat/goat/path"
+	"github.com/opengoats/goat/file"
+	"github.com/opengoats/goat/path"
 )
 
 var (

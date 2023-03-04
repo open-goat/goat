@@ -3,7 +3,7 @@ package label_test
 import (
 	"testing"
 
-	"github.com/open-goat/goat/http/label"
+	"github.com/opengoats/goat/http/label"
 	"github.com/stretchr/testify/assert"
 )
 

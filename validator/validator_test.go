@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/open-goat/goat/validator"
+	"github.com/opengoats/goat/validator"
 	"github.com/stretchr/testify/assert"
 )
 

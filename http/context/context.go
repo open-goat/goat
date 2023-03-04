@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	"github.com/julienschmidt/httprouter"
-	httppb "github.com/open-goat/goat/pb/http"
+	httppb "github.com/opengoats/goat/pb/http"
 )
 
 // context包的WithValue函数, 官方推荐key应该是非导出的, 非go内置的的类型

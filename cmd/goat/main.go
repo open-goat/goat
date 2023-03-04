@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/open-goat/goat/cmd/goat/cmd"
+	"github.com/opengoats/goat/cmd/goat/cmd"
 )
 
 func main() {

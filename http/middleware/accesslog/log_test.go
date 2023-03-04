@@ -7,10 +7,10 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/open-goat/goat/http/middleware/accesslog"
-	"github.com/open-goat/goat/http/router"
-	"github.com/open-goat/goat/http/router/httprouter"
-	"github.com/open-goat/goat/logger/mock"
+	"github.com/opengoats/goat/http/middleware/accesslog"
+	"github.com/opengoats/goat/http/router"
+	"github.com/opengoats/goat/http/router/httprouter"
+	"github.com/opengoats/goat/logger/mock"
 	"github.com/stretchr/testify/require"
 )
 

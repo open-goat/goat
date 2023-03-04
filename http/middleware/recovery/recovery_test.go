@@ -5,9 +5,9 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/open-goat/goat/http/middleware/recovery"
-	"github.com/open-goat/goat/http/router/httprouter"
-	"github.com/open-goat/goat/logger/zap"
+	"github.com/opengoats/goat/http/middleware/recovery"
+	"github.com/opengoats/goat/http/router/httprouter"
+	"github.com/opengoats/goat/logger/zap"
 	"github.com/stretchr/testify/require"
 )
 

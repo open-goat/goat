@@ -21,7 +21,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"google.golang.org/protobuf/proto"
 
-	"github.com/open-goat/goat/pb/example"
+	"github.com/opengoats/goat/pb/example"
 )
 
 type appkey struct {

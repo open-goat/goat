@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/open-goat/goat/logger"
-	httppb "github.com/open-goat/goat/pb/http"
+	"github.com/opengoats/goat/logger"
+	httppb "github.com/opengoats/goat/pb/http"
 )
 
 // Router 路由

@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/open-goat/goat/http/request"
+	"github.com/opengoats/goat/http/request"
 	"github.com/stretchr/testify/assert"
 )
 

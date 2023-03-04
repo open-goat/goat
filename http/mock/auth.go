@@ -4,9 +4,9 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/open-goat/goat/exception"
-	"github.com/open-goat/goat/http/router"
-	httppb "github.com/open-goat/goat/pb/http"
+	"github.com/opengoats/goat/exception"
+	"github.com/opengoats/goat/http/router"
+	httppb "github.com/opengoats/goat/pb/http"
 )
 
 var (

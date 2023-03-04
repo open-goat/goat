@@ -71,13 +71,13 @@ help                           Display this help screen
 # 把依赖的probuf文件复制到/usr/local/include
 
 # 创建protobuf文件目录
-$ make -pv /usr/local/include/github.com/open-goat/goat/pb
+$ make -pv /usr/local/include/github.com/opengoats/goat/pb
 
 # 找到最新的goat protobuf文件
-$ ls `go env GOPATH`/pkg/mod/github.com/open-goat/
+$ ls `go env GOPATH`/pkg/mod/github.com/opengoats/
 
 # 复制到/usr/local/include
-$ cp -rf pb  /usr/local/include/github.com/open-goat/goat/pb
+$ cp -rf pb  /usr/local/include/github.com/opengoats/goat/pb
 ```
 
 2. 添加配置文件(默认读取位置: etc/{{.Name}}.toml)

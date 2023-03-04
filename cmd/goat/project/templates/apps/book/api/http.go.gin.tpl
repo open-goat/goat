@@ -2,9 +2,9 @@ package api
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/open-goat/goat/logger"
-	"github.com/open-goat/goat/logger/zap"
-	"github.com/open-goat/goat/app"
+	"github.com/opengoats/goat/logger"
+	"github.com/opengoats/goat/logger/zap"
+	"github.com/opengoats/goat/app"
 
 	"{{.PKG}}/apps/book"
 )

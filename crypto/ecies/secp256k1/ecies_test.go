@@ -13,7 +13,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"golang.org/x/crypto/hkdf"
 
-	ecies "github.com/open-goat/goat/crypto/ecies/secp256k1"
+	ecies "github.com/opengoats/goat/crypto/ecies/secp256k1"
 )
 
 const testingMessage = "helloworld"

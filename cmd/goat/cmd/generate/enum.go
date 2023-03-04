@@ -8,7 +8,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/open-goat/goat/cmd/goat/enum"
+	"github.com/opengoats/goat/cmd/goat/enum"
 )
 
 // EnumCmd 枚举生成器

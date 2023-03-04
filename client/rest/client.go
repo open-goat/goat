@@ -5,11 +5,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/open-goat/goat/client/negotiator"
-	"github.com/open-goat/goat/flowcontrol"
-	"github.com/open-goat/goat/flowcontrol/tokenbucket"
-	"github.com/open-goat/goat/logger"
-	"github.com/open-goat/goat/logger/zap"
+	"github.com/opengoats/goat/client/negotiator"
+	"github.com/opengoats/goat/flowcontrol"
+	"github.com/opengoats/goat/flowcontrol/tokenbucket"
+	"github.com/opengoats/goat/logger"
+	"github.com/opengoats/goat/logger/zap"
 )
 
 // NewRESTClient creates a new RESTClient. This client performs generic REST functions

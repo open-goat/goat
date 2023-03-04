@@ -6,7 +6,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/open-goat/goat/tools/cli"
+	"github.com/opengoats/goat/tools/cli"
 )
 
 const testFullResult = `├───dir1

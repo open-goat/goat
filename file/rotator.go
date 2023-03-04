@@ -7,7 +7,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/open-goat/goat/logger"
+	"github.com/opengoats/goat/logger"
 	"github.com/pkg/errors"
 )
 

@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/open-goat/goat/logger"
+	"github.com/opengoats/goat/logger"
 )
 
 // Cors interface

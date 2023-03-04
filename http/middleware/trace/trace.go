@@ -8,8 +8,8 @@ import (
 	"github.com/opentracing/opentracing-go/ext"
 	"github.com/rs/xid"
 
-	"github.com/open-goat/goat/http/response"
-	"github.com/open-goat/goat/logger"
+	"github.com/opengoats/goat/http/response"
+	"github.com/opengoats/goat/logger"
 )
 
 const (

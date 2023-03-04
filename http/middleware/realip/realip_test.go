@@ -5,8 +5,8 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/open-goat/goat/http/middleware/realip"
-	"github.com/open-goat/goat/http/router/httprouter"
+	"github.com/opengoats/goat/http/middleware/realip"
+	"github.com/opengoats/goat/http/router/httprouter"
 )
 
 func TestXRealIP(t *testing.T) {

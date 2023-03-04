@@ -8,8 +8,8 @@ import (
 
 	"github.com/go-redis/redis"
 
-	"github.com/open-goat/goat/cache"
-	"github.com/open-goat/goat/trace/tredis"
+	"github.com/opengoats/goat/cache"
+	"github.com/opengoats/goat/trace/tredis"
 )
 
 // NewCache new an redis cache instance

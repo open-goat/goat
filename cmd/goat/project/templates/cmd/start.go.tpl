@@ -9,14 +9,14 @@ import (
 	"syscall"
 
 	"github.com/spf13/cobra"
-	"github.com/open-goat/goat/app"
+	"github.com/opengoats/goat/app"
 {{ if $.EnableCache -}}
-	"github.com/open-goat/goat/cache"
-	"github.com/open-goat/goat/cache/memory"
-	"github.com/open-goat/goat/cache/redis"
+	"github.com/opengoats/goat/cache"
+	"github.com/opengoats/goat/cache/memory"
+	"github.com/opengoats/goat/cache/redis"
 {{- end }}
-	"github.com/open-goat/goat/logger"
-	"github.com/open-goat/goat/logger/zap"
+	"github.com/opengoats/goat/logger"
+	"github.com/opengoats/goat/logger/zap"
 
 	"{{.PKG}}/conf"
 	"{{.PKG}}/protocol"

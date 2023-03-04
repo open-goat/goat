@@ -170,13 +170,13 @@ func file_pb_response_response_proto_rawDescGZIP() []byte {
 
 var file_pb_response_response_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pb_response_response_proto_goTypes = []interface{}{
-	(*Response)(nil),  // 0: open-goat.goat.response.Response
-	nil,               // 1: open-goat.goat.response.Response.MetaEntry
+	(*Response)(nil),  // 0: opengoats.goat.response.Response
+	nil,               // 1: opengoats.goat.response.Response.MetaEntry
 	(*anypb.Any)(nil), // 2: google.protobuf.Any
 }
 var file_pb_response_response_proto_depIdxs = []int32{
-	1, // 0: open-goat.goat.response.Response.meta:type_name -> open-goat.goat.response.Response.MetaEntry
-	2, // 1: open-goat.goat.response.Response.data:type_name -> google.protobuf.Any
+	1, // 0: opengoats.goat.response.Response.meta:type_name -> opengoats.goat.response.Response.MetaEntry
+	2, // 1: opengoats.goat.response.Response.data:type_name -> google.protobuf.Any
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
 	2, // [2:2] is the sub-list for extension type_name

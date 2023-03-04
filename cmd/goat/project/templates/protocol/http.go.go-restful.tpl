@@ -7,15 +7,15 @@ import (
 	"time"
 
 	"github.com/emicklei/go-restful/v3"
-	"github.com/open-goat/goat/logger"
-	"github.com/open-goat/goat/logger/zap"
+	"github.com/opengoats/goat/logger"
+	"github.com/opengoats/goat/logger/zap"
 	restfulspec "github.com/emicklei/go-restful-openapi/v2"
 {{ if $.EnableKeyauth -}}
-	"github.com/open-goat/keyauth/apps/endpoint"
-	httpb "github.com/open-goat/goat/pb/http"
-	"github.com/open-goat/goat/http/label"
+	"github.com/opengoats/keyauth/apps/endpoint"
+	httpb "github.com/opengoats/goat/pb/http"
+	"github.com/opengoats/goat/http/label"
 {{- end }}
-	"github.com/open-goat/goat/app"
+	"github.com/opengoats/goat/app"
 
 	"{{.PKG}}/conf"
 	"{{.PKG}}/swagger"

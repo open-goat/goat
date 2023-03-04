@@ -4,7 +4,7 @@ import (
 	"context"
 	"log"
 
-	"github.com/open-goat/goat/logger"
+	"github.com/opengoats/goat/logger"
 	"go.uber.org/zap"
 )
 

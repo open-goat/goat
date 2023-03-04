@@ -7,10 +7,10 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/open-goat/goat/exception"
-	"github.com/open-goat/goat/http/response"
-	"github.com/open-goat/goat/http/router"
-	"github.com/open-goat/goat/logger"
+	"github.com/opengoats/goat/exception"
+	"github.com/opengoats/goat/http/response"
+	"github.com/opengoats/goat/http/router"
+	"github.com/opengoats/goat/logger"
 )
 
 const recoveryExplanation = "Something went wrong"

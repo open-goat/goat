@@ -1,4 +1,4 @@
-module github.com/open-goat/goat
+module github.com/opengoats/goat
 
 go 1.18
 

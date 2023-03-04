@@ -7,7 +7,7 @@ MOD_DIR := $(shell go env GOPATH)/pkg/mod
 PKG_LIST := $(shell go list ${PKG}/... | grep -v /vendor/ | grep -v redis)
 GO_FILES := $(shell find . -name '*.go' | grep -v /vendor/ | grep -v _test.go)
 
-goat_MODULE := "github.com/open-goat/goat"
+goat_MODULE := "github.com/opengoats/goat"
 goat_VERSION :=$(shell go list -m ${goat_MODULE} | cut -d' ' -f2)
 goat_PKG_PATH := ${MOD_DIR}/${goat_MODULE}@${goat_VERSION}
 
@@ -54,15 +54,15 @@ clean: ## Remove previous build
 	@rm -f dist/${PROJECT_NAME}
 
 install: ## Install depence go package
-	@go install github.com/open-goat/goat/cmd/goat@latest
+	@go install github.com/opengoats/goat/cmd/goat@latest
 	@go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
 	@go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
 	@go install github.com/favadi/protoc-go-inject-tag@latest
 
 pb: ## Copy goat protobuf files to common/pb
-	@mkdir -pv common/pb/github.com/open-goat/goat/pb
-	@cp -r ${goat_PKG_PATH}/pb/* common/pb/github.com/open-goat/goat/pb
-	@sudo rm -rf common/pb/github.com/open-goat/goat/pb/*/*.go
+	@mkdir -pv common/pb/github.com/opengoats/goat/pb
+	@cp -r ${goat_PKG_PATH}/pb/* common/pb/github.com/opengoats/goat/pb
+	@sudo rm -rf common/pb/github.com/opengoats/goat/pb/*/*.go
 
 gen: ## Init Service
 	@protoc -I=. -I=common/pb --go_out=. --go_opt=module=${PKG} --go-grpc_out=. --go-grpc_opt=module=${PKG} apps/*/pb/*.proto

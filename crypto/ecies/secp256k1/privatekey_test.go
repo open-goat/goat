@@ -4,7 +4,7 @@ import (
 	"crypto/subtle"
 	"testing"
 
-	ecies "github.com/open-goat/goat/crypto/ecies/secp256k1"
+	ecies "github.com/opengoats/goat/crypto/ecies/secp256k1"
 	"github.com/stretchr/testify/assert"
 )
 

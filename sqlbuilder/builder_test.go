@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/open-goat/goat/sqlbuilder"
+	"github.com/opengoats/goat/sqlbuilder"
 	"github.com/stretchr/testify/assert"
 )
 

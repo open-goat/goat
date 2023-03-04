@@ -1,13 +1,13 @@
 package api
 
 import (
-	"github.com/open-goat/goat/http/label"
-	"github.com/open-goat/goat/http/router"
-	"github.com/open-goat/goat/logger"
-	"github.com/open-goat/goat/logger/zap"
+	"github.com/opengoats/goat/http/label"
+	"github.com/opengoats/goat/http/router"
+	"github.com/opengoats/goat/logger"
+	"github.com/opengoats/goat/logger/zap"
 
 	"{{.PKG}}/apps/book"
-	"github.com/open-goat/goat/app"
+	"github.com/opengoats/goat/app"
 )
 
 var (

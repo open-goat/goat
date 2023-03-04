@@ -11,9 +11,9 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/open-goat/goat/file"
-	"github.com/open-goat/goat/logger"
-	"github.com/open-goat/goat/logger/zap"
+	"github.com/opengoats/goat/file"
+	"github.com/opengoats/goat/logger"
+	"github.com/opengoats/goat/logger/zap"
 )
 
 const logMessage = "Test file rotator.\n"

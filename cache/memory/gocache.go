@@ -8,7 +8,7 @@ import (
 
 	"github.com/bluele/gcache"
 
-	"github.com/open-goat/goat/cache"
+	"github.com/opengoats/goat/cache"
 )
 
 // NewCache new an redis cache instance

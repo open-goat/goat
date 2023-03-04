@@ -3,7 +3,7 @@ package project_test
 import (
 	"testing"
 
-	"github.com/open-goat/goat/cmd/goat/project"
+	"github.com/opengoats/goat/cmd/goat/project"
 	"github.com/stretchr/testify/assert"
 )
 

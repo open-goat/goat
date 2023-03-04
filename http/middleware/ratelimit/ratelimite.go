@@ -6,10 +6,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/open-goat/goat/flowcontrol"
-	"github.com/open-goat/goat/flowcontrol/tokenbucket"
-	"github.com/open-goat/goat/logger"
-	"github.com/open-goat/goat/logger/zap"
+	"github.com/opengoats/goat/flowcontrol"
+	"github.com/opengoats/goat/flowcontrol/tokenbucket"
+	"github.com/opengoats/goat/logger"
+	"github.com/opengoats/goat/logger/zap"
 )
 
 // NewGlobalModeLimiter todo

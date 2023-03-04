@@ -5,8 +5,8 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/open-goat/goat/cache"
-	"github.com/open-goat/goat/cache/redis"
+	"github.com/opengoats/goat/cache"
+	"github.com/opengoats/goat/cache/redis"
 )
 
 type adapterSuit struct {

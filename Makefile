@@ -1,7 +1,7 @@
 goat_MAIN := "cmd/goat/main.go"
 PROTOC_GEN_GO_HTTP_MAIN = "cmd/protoc-gen-go-http/main.go"
 PROJECT_NAME := "goat"
-PKG := "github.com/open-goat/$(PROJECT_NAME)"
+PKG := "github.com/opengoats/$(PROJECT_NAME)"
 MOD_DIR := $(shell go env GOMODCACHE)
 PKG_LIST := $(shell go list ${PKG}/... | grep -v /vendor/ | grep -v redis | grep -v broker | grep -v etcd | grep -v examples)
 GO_FILES := $(shell find . -name '*.go' | grep -v /vendor/ | grep -v _test.go)
@@ -35,7 +35,7 @@ test-coverage: ## Run tests with coverage
 	@cat cover.out >> coverage.txt
 
 test-hg:  ## test http gen
-	@protoc -I=. -I=${GOPATH}/src --go-http_out=. examples/http/hello.proto --go-http_opt=module="github.com/open-goat/goat"
+	@protoc -I=. -I=${GOPATH}/src --go-http_out=. examples/http/hello.proto --go-http_opt=module="github.com/opengoats/goat"
 
 build: dep ## Build the binary file
 	@go build -o build/$(PROJECT_NAME) $(goat_MAIN)

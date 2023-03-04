@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/open-goat/goat/http/middleware/cors"
+	"github.com/opengoats/goat/http/middleware/cors"
 )
 
 var testHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {

@@ -94,7 +94,7 @@ func file_pb_request_request_proto_rawDescGZIP() []byte {
 
 var file_pb_request_request_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pb_request_request_proto_goTypes = []interface{}{
-	(UpdateMode)(0), // 0: open-goat.goat.request.UpdateMode
+	(UpdateMode)(0), // 0: opengoats.goat.request.UpdateMode
 }
 var file_pb_request_request_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type

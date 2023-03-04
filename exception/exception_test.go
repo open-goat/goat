@@ -4,7 +4,7 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/open-goat/goat/exception"
+	"github.com/opengoats/goat/exception"
 )
 
 func TestNewNotFound(t *testing.T) {

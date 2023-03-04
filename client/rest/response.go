@@ -7,9 +7,9 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/open-goat/goat/client/compressor"
-	"github.com/open-goat/goat/client/negotiator"
-	"github.com/open-goat/goat/logger"
+	"github.com/opengoats/goat/client/compressor"
+	"github.com/opengoats/goat/client/negotiator"
+	"github.com/opengoats/goat/logger"
 )
 
 func NewResponse(c *RESTClient) *Response {

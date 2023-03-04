@@ -5,8 +5,8 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/open-goat/goat/http/label"
-	"github.com/open-goat/goat/pb/http"
+	"github.com/opengoats/goat/http/label"
+	"github.com/opengoats/goat/pb/http"
 )
 
 func TestEntry(t *testing.T) {

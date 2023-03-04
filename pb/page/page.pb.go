@@ -114,7 +114,7 @@ func file_pb_page_page_proto_rawDescGZIP() []byte {
 
 var file_pb_page_page_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pb_page_page_proto_goTypes = []interface{}{
-	(*PageRequest)(nil), // 0: open-goat.goat.page.PageRequest
+	(*PageRequest)(nil), // 0: opengoats.goat.page.PageRequest
 }
 var file_pb_page_page_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type

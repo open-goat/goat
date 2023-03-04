@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package open-goat.goat.http;
+package opengoats.goat.http;
 
-option go_package = "github.com/open-goat/goat/pb/http";
+option go_package = "github.com/opengoats/goat/pb/http";
 option java_package = "com.google.protobuf";
 option java_outer_classname = "HttpProtos";
 option csharp_namespace = "Google.Protobuf.Reflection";

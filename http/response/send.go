@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/open-goat/goat/exception"
+	"github.com/opengoats/goat/exception"
 )
 
 // Failed use to response error messge

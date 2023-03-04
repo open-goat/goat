@@ -158,8 +158,8 @@ func file_pb_example_test_proto_rawDescGZIP() []byte {
 var file_pb_example_test_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pb_example_test_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pb_example_test_proto_goTypes = []interface{}{
-	(FOO)(0),     // 0: open-goat.goat.example.FOO
-	(*Test)(nil), // 1: open-goat.goat.example.Test
+	(FOO)(0),     // 0: opengoats.goat.example.FOO
+	(*Test)(nil), // 1: opengoats.goat.example.Test
 }
 var file_pb_example_test_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type

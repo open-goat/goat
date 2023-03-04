@@ -1,7 +1,7 @@
 syntax = "proto3";
 
-package open-goat.goat.response;
-option go_package = "github.com/open-goat/goat/pb/response";
+package opengoats.goat.response;
+option go_package = "github.com/opengoats/goat/pb/response";
 
 import "google/protobuf/any.proto";
 

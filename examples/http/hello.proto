@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 package goat.example.hello;
-option go_package = "github.com/open-goat/goat/examples/http";
+option go_package = "github.com/opengoats/goat/examples/http";
 
 import "pb/http/entry.proto";
 

@@ -6,18 +6,18 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/open-goat/goat/logger"
-	"github.com/open-goat/goat/logger/zap"
+	"github.com/opengoats/goat/logger"
+	"github.com/opengoats/goat/logger/zap"
 
-	"github.com/open-goat/keyauth/apps/endpoint"
-	"github.com/open-goat/keyauth/client/interceptor"
+	"github.com/opengoats/keyauth/apps/endpoint"
+	"github.com/opengoats/keyauth/client/interceptor"
 
-	"github.com/open-goat/goat/app"
-	"github.com/open-goat/goat/http/middleware/accesslog"
-	"github.com/open-goat/goat/http/middleware/cors"
-	"github.com/open-goat/goat/http/middleware/recovery"
-	"github.com/open-goat/goat/http/router"
-	"github.com/open-goat/goat/http/router/httprouter"
+	"github.com/opengoats/goat/app"
+	"github.com/opengoats/goat/http/middleware/accesslog"
+	"github.com/opengoats/goat/http/middleware/cors"
+	"github.com/opengoats/goat/http/middleware/recovery"
+	"github.com/opengoats/goat/http/router"
+	"github.com/opengoats/goat/http/router/httprouter"
 
 	"{{.PKG}}/conf"
 	"{{.PKG}}/version"

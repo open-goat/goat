@@ -1,7 +1,7 @@
 package generater
 
 import (
-	"github.com/open-goat/goat/pb/http"
+	"github.com/opengoats/goat/pb/http"
 
 	"github.com/golang/protobuf/protoc-gen-go/descriptor"
 	"google.golang.org/protobuf/proto"

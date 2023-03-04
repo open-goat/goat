@@ -6,8 +6,8 @@ import (
 
 	"github.com/go-playground/validator/v10"
 	"github.com/imdario/mergo"
-	"github.com/open-goat/goat/http/request"
-	pb_request "github.com/open-goat/goat/pb/request"
+	"github.com/opengoats/goat/http/request"
+	pb_request "github.com/opengoats/goat/pb/request"
 	"github.com/rs/xid"
 )
 

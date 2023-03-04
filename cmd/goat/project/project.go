@@ -15,7 +15,7 @@ import (
 	"github.com/AlecAivazis/survey/v2"
 	"github.com/pkg/errors"
 
-	"github.com/open-goat/goat/tools/cli"
+	"github.com/opengoats/goat/tools/cli"
 	"gopkg.in/yaml.v3"
 
 	"embed"

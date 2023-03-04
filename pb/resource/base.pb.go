@@ -101,7 +101,7 @@ func file_pb_resource_base_proto_rawDescGZIP() []byte {
 
 var file_pb_resource_base_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pb_resource_base_proto_goTypes = []interface{}{
-	(VISIABLE_MODE)(0), // 0: open-goat.goat.resource.VISIABLE_MODE
+	(VISIABLE_MODE)(0), // 0: opengoats.goat.resource.VISIABLE_MODE
 }
 var file_pb_resource_base_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type

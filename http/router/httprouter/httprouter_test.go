@@ -5,13 +5,13 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/open-goat/goat/exception"
-	"github.com/open-goat/goat/http/context"
-	"github.com/open-goat/goat/http/label"
-	"github.com/open-goat/goat/http/mock"
-	"github.com/open-goat/goat/http/response"
-	"github.com/open-goat/goat/http/router/httprouter"
-	httppb "github.com/open-goat/goat/pb/http"
+	"github.com/opengoats/goat/exception"
+	"github.com/opengoats/goat/http/context"
+	"github.com/opengoats/goat/http/label"
+	"github.com/opengoats/goat/http/mock"
+	"github.com/opengoats/goat/http/response"
+	"github.com/opengoats/goat/http/router/httprouter"
+	httppb "github.com/opengoats/goat/pb/http"
 	"github.com/stretchr/testify/assert"
 )
 

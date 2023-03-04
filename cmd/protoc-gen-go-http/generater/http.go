@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	routerPackage = protogen.GoImportPath("github.com/open-goat/goat/pb/http")
+	routerPackage = protogen.GoImportPath("github.com/opengoats/goat/pb/http")
 )
 
 // NewGenerater todo

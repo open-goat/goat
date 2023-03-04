@@ -2,10 +2,10 @@ package api
 
 import (
 	"github.com/emicklei/go-restful/v3"
-	"github.com/open-goat/goat/app"
-	"github.com/open-goat/goat/app/health"
-	"github.com/open-goat/goat/logger"
-	"github.com/open-goat/goat/logger/zap"
+	"github.com/opengoats/goat/app"
+	"github.com/opengoats/goat/app/health"
+	"github.com/opengoats/goat/logger"
+	"github.com/opengoats/goat/logger/zap"
 
 	restfulspec "github.com/emicklei/go-restful-openapi/v2"
 	healthgrpc "google.golang.org/grpc/health/grpc_health_v1"

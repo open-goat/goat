@@ -15,7 +15,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/open-goat/goat/file"
+	"github.com/opengoats/goat/file"
 )
 
 func TestStat(t *testing.T) {

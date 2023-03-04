@@ -5,7 +5,7 @@ import (
 	"errors"
 	"io"
 
-	"github.com/open-goat/goat/exception"
+	"github.com/opengoats/goat/exception"
 )
 
 // GetDataFromBody 获取body中的数据

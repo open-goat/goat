@@ -3,7 +3,7 @@ package gcontext
 import (
 	"strconv"
 
-	"github.com/open-goat/goat/exception"
+	"github.com/opengoats/goat/exception"
 	"google.golang.org/grpc/metadata"
 )
 

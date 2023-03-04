@@ -3,7 +3,7 @@ package cors
 import (
 	"net/http"
 
-	"github.com/open-goat/goat/logger"
+	"github.com/opengoats/goat/logger"
 )
 
 // Options is a configuration container to setup the CORS middleware.

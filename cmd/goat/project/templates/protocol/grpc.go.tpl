@@ -6,12 +6,12 @@ import (
 	"google.golang.org/grpc"
 
 {{ if $.EnableKeyauth -}}
-	"github.com/open-goat/keyauth/client/interceptor"
+	"github.com/opengoats/keyauth/client/interceptor"
 {{- end }}
-	"github.com/open-goat/goat/app"
-	"github.com/open-goat/goat/grpc/middleware/recovery"
-	"github.com/open-goat/goat/logger"
-	"github.com/open-goat/goat/logger/zap"
+	"github.com/opengoats/goat/app"
+	"github.com/opengoats/goat/grpc/middleware/recovery"
+	"github.com/opengoats/goat/logger"
+	"github.com/opengoats/goat/logger/zap"
 
 	"{{.PKG}}/conf"
 )

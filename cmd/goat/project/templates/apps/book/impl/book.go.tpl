@@ -6,10 +6,10 @@ import (
 	"database/sql"
 {{- end }}
 
-	"github.com/open-goat/goat/exception"
-	"github.com/open-goat/goat/pb/request"
+	"github.com/opengoats/goat/exception"
+	"github.com/opengoats/goat/pb/request"
 {{ if $.EnableMySQL -}}
-	"github.com/open-goat/goat/sqlbuilder"
+	"github.com/opengoats/goat/sqlbuilder"
 {{- end }}
 
 	"{{.PKG}}/apps/book"

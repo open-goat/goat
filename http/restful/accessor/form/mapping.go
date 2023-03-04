@@ -9,7 +9,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/open-goat/goat/types/bytes"
+	"github.com/opengoats/goat/types/bytes"
 )
 
 var (

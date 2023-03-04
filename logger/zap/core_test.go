@@ -6,8 +6,8 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/open-goat/goat/logger"
-	"github.com/open-goat/goat/logger/zap"
+	"github.com/opengoats/goat/logger"
+	"github.com/opengoats/goat/logger/zap"
 )
 
 func TestLogger(t *testing.T) {

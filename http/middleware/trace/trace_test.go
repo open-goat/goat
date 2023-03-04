@@ -9,9 +9,9 @@ import (
 	"github.com/opentracing/opentracing-go/mocktracer"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/open-goat/goat/http/middleware/trace"
-	"github.com/open-goat/goat/http/router/httprouter"
-	"github.com/open-goat/goat/logger/zap"
+	"github.com/opengoats/goat/http/middleware/trace"
+	"github.com/opengoats/goat/http/router/httprouter"
+	"github.com/opengoats/goat/logger/zap"
 )
 
 var (

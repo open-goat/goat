@@ -6,7 +6,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/open-goat/goat/exception"
+	"github.com/opengoats/goat/exception"
 )
 
 var (

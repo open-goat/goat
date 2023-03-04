@@ -3,9 +3,9 @@ package api
 import (
 	"net/http"
 
-	"github.com/open-goat/goat/http/context"
-	"github.com/open-goat/goat/http/request"
-	"github.com/open-goat/goat/http/response"
+	"github.com/opengoats/goat/http/context"
+	"github.com/opengoats/goat/http/request"
+	"github.com/opengoats/goat/http/response"
 
 	"{{.PKG}}/apps/book"
 )

@@ -6,7 +6,7 @@ import (
 	"github.com/spf13/cobra"
 
 	"github.com/AlecAivazis/survey/v2/terminal"
-	"github.com/open-goat/goat/cmd/goat/project"
+	"github.com/opengoats/goat/cmd/goat/project"
 )
 
 // InitCmd 初始化系统

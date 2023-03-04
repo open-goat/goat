@@ -10,10 +10,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/open-goat/goat/client/negotiator"
-	"github.com/open-goat/goat/flowcontrol"
-	"github.com/open-goat/goat/flowcontrol/tokenbucket"
-	"github.com/open-goat/goat/logger"
+	"github.com/opengoats/goat/client/negotiator"
+	"github.com/opengoats/goat/flowcontrol"
+	"github.com/opengoats/goat/flowcontrol/tokenbucket"
+	"github.com/opengoats/goat/logger"
 )
 
 // NewRequest creates a new request helper object.

@@ -1,7 +1,7 @@
 package client
 
 import (
-	kc "github.com/open-goat/keyauth/client"
+	kc "github.com/opengoats/keyauth/client"
 )
 
 // NewDefaultConfig todo

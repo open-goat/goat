@@ -5,9 +5,9 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/open-goat/goat/http/router"
-	"github.com/open-goat/goat/http/router/httprouter"
-	httppb "github.com/open-goat/goat/pb/http"
+	"github.com/opengoats/goat/http/router"
+	"github.com/opengoats/goat/http/router/httprouter"
+	httppb "github.com/opengoats/goat/pb/http"
 	"github.com/stretchr/testify/assert"
 )
 

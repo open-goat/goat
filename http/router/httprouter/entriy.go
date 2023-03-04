@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	httppb "github.com/open-goat/goat/pb/http"
+	httppb "github.com/opengoats/goat/pb/http"
 )
 
 // Entry 路由条目

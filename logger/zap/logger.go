@@ -6,7 +6,7 @@ import (
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 
-	"github.com/open-goat/goat/logger"
+	"github.com/opengoats/goat/logger"
 )
 
 // LogOption configures a Logger.

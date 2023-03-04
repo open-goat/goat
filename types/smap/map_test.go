@@ -7,7 +7,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/open-goat/goat/types/smap"
+	"github.com/opengoats/goat/types/smap"
 )
 
 type MapParameter = smap.StringMap

@@ -12,12 +12,12 @@ import (
 {{- end }}
 
 {{ if $.EnableKeyauth -}}
-	kc "github.com/open-goat/keyauth/client"
+	kc "github.com/opengoats/keyauth/client"
 {{- end }}
 
 {{ if $.EnableCache -}}
-	"github.com/open-goat/goat/cache/memory"
-	"github.com/open-goat/goat/cache/redis"
+	"github.com/opengoats/goat/cache/memory"
+	"github.com/opengoats/goat/cache/redis"
 {{- end }}
 
 {{ if $.EnableMongoDB -}}

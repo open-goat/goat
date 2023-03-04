@@ -6,9 +6,9 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/open-goat/goat/cmd/goat/cmd/generate"
-	"github.com/open-goat/goat/cmd/goat/cmd/project"
-	"github.com/open-goat/goat/cmd/goat/cmd/protobuf"
+	"github.com/opengoats/goat/cmd/goat/cmd/generate"
+	"github.com/opengoats/goat/cmd/goat/cmd/project"
+	"github.com/opengoats/goat/cmd/goat/cmd/protobuf"
 )
 
 var vers bool

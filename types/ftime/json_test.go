@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/open-goat/goat/types/ftime"
+	"github.com/opengoats/goat/types/ftime"
 	"github.com/stretchr/testify/assert"
 )
 

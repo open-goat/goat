@@ -3,7 +3,7 @@ package enum_test
 import (
 	"testing"
 
-	"github.com/open-goat/goat/cmd/goat/enum"
+	"github.com/opengoats/goat/cmd/goat/enum"
 	"github.com/stretchr/testify/assert"
 )
 

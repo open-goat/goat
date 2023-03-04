@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/open-goat/goat/http/request"
+	"github.com/opengoats/goat/http/request"
 	"github.com/rs/xid"
 	"google.golang.org/grpc/metadata"
 )

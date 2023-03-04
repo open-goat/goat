@@ -2,7 +2,7 @@ package api
 
 import (
 	"github.com/emicklei/go-restful/v3"
-	"github.com/open-goat/goat/http/response"
+	"github.com/opengoats/goat/http/response"
 
 	"{{.PKG}}/apps/book"
 )

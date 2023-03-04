@@ -1,7 +1,7 @@
 package label
 
 import (
-	"github.com/open-goat/goat/pb/http"
+	"github.com/opengoats/goat/pb/http"
 )
 
 const (

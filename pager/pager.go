@@ -3,7 +3,7 @@ package pager
 import (
 	"context"
 
-	"github.com/open-goat/goat/flowcontrol/tokenbucket"
+	"github.com/opengoats/goat/flowcontrol/tokenbucket"
 )
 
 // 分页迭代器

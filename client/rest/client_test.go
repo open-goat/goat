@@ -4,9 +4,9 @@ import (
 	"context"
 	"testing"
 
-	"github.com/open-goat/goat/client/rest"
-	"github.com/open-goat/goat/http/response"
-	"github.com/open-goat/goat/logger/zap"
+	"github.com/opengoats/goat/client/rest"
+	"github.com/opengoats/goat/http/response"
+	"github.com/opengoats/goat/logger/zap"
 )
 
 func TestClient(t *testing.T) {

@@ -3,8 +3,8 @@ syntax = "proto3";
 package demo.book;
 option go_package = "{{.PKG}}/apps/book";
 
-import "github.com/open-goat/goat/pb/page/page.proto";
-import "github.com/open-goat/goat/pb/request/request.proto";
+import "github.com/opengoats/goat/pb/page/page.proto";
+import "github.com/opengoats/goat/pb/request/request.proto";
 
 service Service {
     rpc CreateBook(CreateBookRequest) returns(Book);
@@ -48,7 +48,7 @@ message CreateBookRequest {
 message QueryBookRequest {
     // 分页参数
     // @gotags: json:"page" 
-    open-goat.goat.page.PageRequest page = 1;
+    opengoats.goat.page.PageRequest page = 1;
     // 关键字参数
     // @gotags: json:"keywords"
     string keywords = 2;  
@@ -76,7 +76,7 @@ message UpdateBookRequest {
     string id = 1;
     // 更新模式
     // @gotags: json:"update_mode"
-    open-goat.goat.request.UpdateMode update_mode = 2;
+    opengoats.goat.request.UpdateMode update_mode = 2;
     // 更新人
     // @gotags: json:"update_by"
     string update_by = 3;

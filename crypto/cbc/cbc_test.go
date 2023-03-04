@@ -5,7 +5,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/open-goat/goat/crypto/cbc"
+	"github.com/opengoats/goat/crypto/cbc"
 )
 
 func TestAESCBC(t *testing.T) {

@@ -10,9 +10,9 @@ import (
 {{- end }}
 	
 
-	"github.com/open-goat/goat/app"
-	"github.com/open-goat/goat/logger"
-	"github.com/open-goat/goat/logger/zap"
+	"github.com/opengoats/goat/app"
+	"github.com/opengoats/goat/logger"
+	"github.com/opengoats/goat/logger/zap"
 	"google.golang.org/grpc"
 
 	"{{.PKG}}/apps/book"

@@ -176,7 +176,7 @@ var file_pb_http_entry_proto_extTypes = []protoimpl.ExtensionInfo{
 		ExtendedType:  (*descriptorpb.MethodOptions)(nil),
 		ExtensionType: (*Entry)(nil),
 		Field:         20210228,
-		Name:          "open-goat.goat.http.rest_api",
+		Name:          "opengoats.goat.http.rest_api",
 		Tag:           "bytes,20210228,opt,name=rest_api",
 		Filename:      "pb/http/entry.proto",
 	},
@@ -184,7 +184,7 @@ var file_pb_http_entry_proto_extTypes = []protoimpl.ExtensionInfo{
 
 // Extension fields to descriptorpb.MethodOptions.
 var (
-	// optional open-goat.goat.http.Entry rest_api = 20210228;
+	// optional opengoats.goat.http.Entry rest_api = 20210228;
 	E_RestApi = &file_pb_http_entry_proto_extTypes[0]
 )
 
@@ -260,16 +260,16 @@ func file_pb_http_entry_proto_rawDescGZIP() []byte {
 
 var file_pb_http_entry_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_pb_http_entry_proto_goTypes = []interface{}{
-	(*Entry)(nil),                      // 0: open-goat.goat.http.Entry
-	nil,                                // 1: open-goat.goat.http.Entry.LabelsEntry
-	nil,                                // 2: open-goat.goat.http.Entry.ExtensionEntry
+	(*Entry)(nil),                      // 0: opengoats.goat.http.Entry
+	nil,                                // 1: opengoats.goat.http.Entry.LabelsEntry
+	nil,                                // 2: opengoats.goat.http.Entry.ExtensionEntry
 	(*descriptorpb.MethodOptions)(nil), // 3: google.protobuf.MethodOptions
 }
 var file_pb_http_entry_proto_depIdxs = []int32{
-	1, // 0: open-goat.goat.http.Entry.labels:type_name -> open-goat.goat.http.Entry.LabelsEntry
-	2, // 1: open-goat.goat.http.Entry.extension:type_name -> open-goat.goat.http.Entry.ExtensionEntry
-	3, // 2: open-goat.goat.http.rest_api:extendee -> google.protobuf.MethodOptions
-	0, // 3: open-goat.goat.http.rest_api:type_name -> open-goat.goat.http.Entry
+	1, // 0: opengoats.goat.http.Entry.labels:type_name -> opengoats.goat.http.Entry.LabelsEntry
+	2, // 1: opengoats.goat.http.Entry.extension:type_name -> opengoats.goat.http.Entry.ExtensionEntry
+	3, // 2: opengoats.goat.http.rest_api:extendee -> google.protobuf.MethodOptions
+	0, // 3: opengoats.goat.http.rest_api:type_name -> opengoats.goat.http.Entry
 	4, // [4:4] is the sub-list for method output_type
 	4, // [4:4] is the sub-list for method input_type
 	3, // [3:4] is the sub-list for extension type_name

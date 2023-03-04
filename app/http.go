@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/open-goat/goat/http/router"
+	"github.com/opengoats/goat/http/router"
 )
 
 var (

@@ -3,7 +3,7 @@ package array_test
 import (
 	"testing"
 
-	"github.com/open-goat/goat/types/array"
+	"github.com/opengoats/goat/types/array"
 	"github.com/stretchr/testify/assert"
 )
 

@@ -7,13 +7,13 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/open-goat/goat/logger"
-	"github.com/open-goat/goat/logger/zap"
+	"github.com/opengoats/goat/logger"
+	"github.com/opengoats/goat/logger/zap"
 {{ if $.EnableKeyauth -}}
-	"github.com/open-goat/keyauth/apps/endpoint"
+	"github.com/opengoats/keyauth/apps/endpoint"
 {{- end }}
-	"github.com/open-goat/goat/app"
-	"github.com/open-goat/goat/http/middleware/cors"
+	"github.com/opengoats/goat/app"
+	"github.com/opengoats/goat/http/middleware/cors"
 
 	"{{.PKG}}/conf"
 {{ if $.EnableKeyauth -}}

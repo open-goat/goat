@@ -4,7 +4,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/open-goat/goat/http/request"
+	"github.com/opengoats/goat/http/request"
 )
 
 var (

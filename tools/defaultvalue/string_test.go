@@ -3,7 +3,7 @@ package defaultvalue_test
 import (
 	"testing"
 
-	"github.com/open-goat/goat/tools/defaultvalue"
+	"github.com/opengoats/goat/tools/defaultvalue"
 	"github.com/stretchr/testify/assert"
 )
 
