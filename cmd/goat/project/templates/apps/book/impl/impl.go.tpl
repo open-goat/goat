@@ -1,0 +1,68 @@
+package impl
+
+import (
+{{ if $.EnableMySQL -}}
+	"database/sql"
+{{- end }}
+
+{{ if $.EnableMongoDB -}}
+	"go.mongodb.org/mongo-driver/mongo"
+{{- end }}
+	
+
+	"github.com/open-goat/goat/app"
+	"github.com/open-goat/goat/logger"
+	"github.com/open-goat/goat/logger/zap"
+	"google.golang.org/grpc"
+
+	"{{.PKG}}/apps/book"
+	"{{.PKG}}/conf"
+)
+
+var (
+	// Service 服务实例
+	svr = &service{}
+)
+
+type service struct {
+{{ if $.EnableMySQL -}}
+	db   *sql.DB
+{{- end }}
+{{ if $.EnableMongoDB -}}
+	col *mongo.Collection
+{{- end }}
+	log  logger.Logger
+	book.UnimplementedServiceServer
+}
+
+func (s *service) Config() error {
+{{ if $.EnableMySQL -}}
+	db, err := conf.C().MySQL.GetDB()
+	if err != nil {
+		return err
+	}
+	s.db = db
+{{- end }}
+{{ if $.EnableMongoDB -}}
+	db, err := conf.C().Mongo.GetDB()
+	if err != nil {
+		return err
+	}
+	s.col = db.Collection(s.Name())
+{{- end }}
+
+	s.log = zap.L().Named(s.Name())
+	return nil
+}
+
+func (s *service) Name() string {
+	return book.AppName
+}
+
+func (s *service) Registry(server *grpc.Server) {
+	book.RegisterServiceServer(server, svr)
+}
+
+func init() {
+	app.RegistryGrpcApp(svr)
+}

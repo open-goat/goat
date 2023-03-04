@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package open-goat.goat.resource;
+option go_package = "github.com/open-goat/goat/pb/resource";
+
+enum VISIABLE_MODE {
+    // 默认Namespace可见
+    NAMESPACE = 0;
+    // 域内可见
+    DOMAIN = 1;
+    // 全局可见
+    GLOBAL = 2;
+}

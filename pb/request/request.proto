@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package open-goat.goat.request;
+option go_package = "github.com/open-goat/goat/pb/request";
+
+enum UpdateMode {
+    PUT = 0;
+    PATCH = 1;
+}

@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package open-goat.goat.example;
+option go_package = "github.com/open-goat/goat/pb/example";
+
+enum FOO {
+    X = 0;
+}
+
+message Test {
+    string label = 1;
+    int32 type = 2;
+    int64 reps = 3;
+}
