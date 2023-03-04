@@ -97,7 +97,10 @@ func LoadConfigFromCLI() (*Project, error) {
 	genExample := &survey.Confirm{
 		Message: "生成样例代码",
 	}
-	survey.AskOne(genExample, &p.GenExample)
+	err = survey.AskOne(genExample, &p.GenExample)
+	if err != nil {
+		return nil, err
+	}
 
 	if p.GenExample {
 		// 选择使用的HTTP 框架
@@ -110,6 +113,8 @@ func LoadConfigFromCLI() (*Project, error) {
 		if err != nil {
 			return nil, err
 		}
+	} else {
+		p.HttpFramework = ""
 	}
 
 	p.caculate()
@@ -231,7 +236,9 @@ func (p *Project) Init() error {
 				}
 			}
 		} else {
-			return nil
+			if strings.Contains(path, "apps/book") {
+				return nil
+			}
 		}
 
 		// 如果不是使用MySQL, 不需要渲染的文件
@@ -270,6 +277,7 @@ func (p *Project) Init() error {
 	}
 
 	// 保存项目设置文件
+
 	err = p.SaveFile(path.Join(p.Name, PROJECT_SETTING_FILE_PATH))
 	if err != nil {
 		fmt.Printf("保存项目配置文件: %s 失败: %s\n", PROJECT_SETTING_FILE_PATH, err)
