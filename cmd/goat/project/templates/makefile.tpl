@@ -3,7 +3,12 @@ MAIN_FILE_PAHT := "main.go"
 PKG := "{{.PKG}}"
 IMAGE_PREFIX := "{{.PKG}}"
 
-MOD_DIR := $(shell go env GOPATH)/pkg/mod
+HOST_OS := $(shell go env GOHOSTOS)
+ifeq ($(HOST_OS),windows)
+	MOD_DIR := ${shell go env GOPATH |sed 's/^/\/&/' | sed 's/:/\//'}/pkg/mod
+else
+	MOD_DIR := $(shell go env GOPATH)/pkg/mod
+endif
 PKG_LIST := $(shell go list ${PKG}/... | grep -v /vendor/ | grep -v redis)
 GO_FILES := $(shell find . -name '*.go' | grep -v /vendor/ | grep -v _test.go)
 
