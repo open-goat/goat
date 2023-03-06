@@ -1,7 +1,7 @@
 syntax = "proto3";
 
-package opengoats.goat.page;
-option go_package = "github.com/opengoats/goat/http/request";
+package common.pb.page;
+option go_package = "{{.PKG}}/common/pb/page";
 
 message PageRequest {
     uint64 page_size = 1;

@@ -1,7 +1,7 @@
 syntax = "proto3";
 
-package opengoats.goat.base;
-option go_package = "github.com/opengoats/goat/pb/base";
+package common.pb.base;
+option go_package = "{{.PKG}}/common/pb/base";
 
 message Base {
     // 唯一ID
@@ -12,16 +12,19 @@ message Base {
     // 录入时间
     // @gotags: json:"create_at" bson:"create_at"
     int64 create_at = 3;
+    // 录入人
+    // @gotags: json:"create_by" bson:"create_by"
+    string create_by = 4;
     // 更新时间
     // @gotags: json:"update_at" bson:"update_at"
-    int64 update_at = 4;
+    int64 update_at = 5;
     // 更新人
     // @gotags: json:"update_by" bson:"update_by"
-    string update_by = 5;
+    string update_by = 6;
     // 删除时间
     // @gotags: json:"delete_at" bson:"delete_at"
-    int64 delete_at = 6;
+    int64 delete_at = 7;
     // 删除人
     // @gotags: json:"delete_by" bson:"delete_by"
-    string delete_by = 7;
+    string delete_by = 8;
 }
