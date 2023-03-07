@@ -64,6 +64,11 @@ install: ## Install depence go package
 	@go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
 	@go install github.com/favadi/protoc-go-inject-tag@latest
 
+pb: ## Copy mcube protobuf files to common/pb
+	@mkdir -pv common/pb/github.com/opengoats/goat/pb
+	@cp -r ${gobe_PKG_PATH}/pb/* common/pb/github.com/opengoats/goat/pb
+	@sudo rm -rf common/pb/github.com/opengoats/goat/pb/*/*.go
+
 gen: ## Init Service
 	@protoc -I=. --go_out=. --go_opt=module=${PKG}  common/pb/*/*.proto
 	@protoc -I=. -I=common/pb --go_out=. --go_opt=module=${PKG} --go-grpc_out=. --go-grpc_opt=module=${PKG} apps/*/pb/*.proto
