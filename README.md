@@ -19,12 +19,13 @@
 
 ## 快速上手
 
-首先你需要安装goat, 所有的功能都集成到这个CLI工具上了
+* 首先你需要安装goat, 所有的功能都集成到这个CLI工具上了
+
 ```sh
 $ go install github.com/opengoats/goat/cmd/goat@latest
 ```
 
-按照完成后, 通过help指令查看基本使用方法
+* 按照完成后, 通过help指令查看基本使用方法
 ```
 $ goat -h
 goat 分布式服务构建工具
@@ -47,10 +48,8 @@ Flags:
 Use "goat [command] --help" for more information about a command.
 ```
 
-goat提供项目初始化能力, 利用goat提供的工具箱, 快速组装出一个接近生产级别的应用(使用请看README):
-
+ * goat提供项目初始化能力, 利用goat提供的工具箱, 快速组装出一个接近生产级别的应用
 ```sh
-$ mkdir demo && cd demo
 $ goat project init
 ? 请输入项目包名称: (github.com/opengoats/goat-demo) github.com/opengoats/cmdb
 
@@ -122,18 +121,32 @@ $ goat project init
         └───version.go (661b)
 ```
 
-启用看一看
-```
-$ make run
-2020-06-06T20:03:00.328+0800    INFO    [INIT]  cmd/service.go:151      log level: debug
-2020-06-06T20:03:00.328+0800    INFO    [CLI]   cmd/service.go:93       loaded services: []
-Version   : 
-Build Time: 
-Git Branch: 
-Git Commit: 
-Go Version: 
 
-2020-06-06T20:03:00.328+0800    INFO    [API]   api/api.go:66   http endpoint registry success
-2020-06-06T20:03:00.328+0800    INFO    [API]   api/api.go:100  HTTP服务启动成功, 监听地址: 0.0.0.0:8050
+## 开发环境
+
+* grpc 环境准备
+
+```
+# 1.安装protoc编译器,  项目使用版本: v3.19.1
+# 下载预编译包安装: https://github.com/protocolbuffers/protobuf/releases
+
+# 2.protoc-gen-go go语言查询, 项目使用版本: v1.27.1   
+go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+
+# 3.安装protoc-gen-go-grpc插件, 项目使用版本: 1.1.0
+go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
+
+# 4.安装自定义proto tag插件
+go install github.com/favadi/protoc-go-inject-tag@latest
+```
+
+* protobuf代码生成:
+```
+make gen
+```
+
+* 运行程序
+```
+make run
 ```
 
