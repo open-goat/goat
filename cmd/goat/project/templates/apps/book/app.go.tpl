@@ -29,9 +29,11 @@ func NewBook(req *CreateBookRequest) (*Book, error) {
 	}
 
 	return &Book{
-		Id:       xid.New().String(),
-		CreateAt: time.Now().UnixMicro(),
-		Data:     req,
+		Base: &base.Base{
+			Id:       xid.New().String(),
+			CreateAt: time.Now().UnixMicro(),
+		},
+		Data: req,
 	}, nil
 }
 
@@ -56,14 +58,14 @@ func NewDefaultBook() *Book {
 }
 
 func (i *Book) Update(req *UpdateBookRequest) {
-	i.UpdateAt = time.Now().UnixMicro()
-	i.UpdateBy = req.UpdateBy
+	i.Base.UpdateAt = time.Now().UnixMicro()
+	i.Base.UpdateBy = req.UpdateBy
 	i.Data = req.Data
 }
 
 func (i *Book) Patch(req *UpdateBookRequest) error {
-	i.UpdateAt = time.Now().UnixMicro()
-	i.UpdateBy = req.UpdateBy
+	i.Base.UpdateAt = time.Now().UnixMicro()
+	i.Base.UpdateBy = req.UpdateBy
 	return mergo.MergeWithOverwrite(i.Data, req.Data)
 }
 

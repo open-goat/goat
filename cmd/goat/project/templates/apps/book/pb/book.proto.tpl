@@ -3,8 +3,9 @@ syntax = "proto3";
 package demo.book;
 option go_package = "{{.PKG}}/apps/book";
 
-import "common/pb/page/page.proto";
-import "common/pb/base/base.proto";
+import "github.com/opengoats/goat/pb/base/base.proto";
+import "github.com/opengoats/goat/pb/page/page.proto";
+import "github.com/opengoats/goat/pb/request/request.proto";
 
 service Service {
     rpc CreateBook(CreateBookRequest) returns(Book);
@@ -18,7 +19,7 @@ service Service {
 message Book {
     // 基本信息
     // @gotags: json:"base" 
-    common.pb.base.Base base = 1;
+    opengoats.goat.base.Base base = 1;
     // 书本信息
     // @gotags: json:"data" bson:"data"
     CreateBookRequest data = 2;

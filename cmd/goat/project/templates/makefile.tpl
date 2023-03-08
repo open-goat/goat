@@ -66,11 +66,10 @@ install: ## Install depence go package
 
 pb: ## Copy mcube protobuf files to common/pb
 	@mkdir -pv common/pb/github.com/opengoats/goat/pb
-	@cp -r ${gobe_PKG_PATH}/pb/* common/pb/github.com/opengoats/goat/pb
-	@sudo rm -rf common/pb/github.com/opengoats/goat/pb/*/*.go
+	@cp -r ${goat_PKG_PATH}/pb/* common/pb/github.com/opengoats/goat/pb
+	@rm -f common/pb/github.com/opengoats/goat/pb/*/*.go
 
 gen: ## Init Service
-	@protoc -I=. --go_out=. --go_opt=module=${PKG}  common/pb/*/*.proto
 	@protoc -I=. -I=common/pb --go_out=. --go_opt=module=${PKG} --go-grpc_out=. --go-grpc_opt=module=${PKG} apps/*/pb/*.proto
 	@go fmt ./...
 {{ if $.GenExample }}
