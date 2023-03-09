@@ -188,7 +188,7 @@ func TestAPIRootOK(t *testing.T) {
 	r.ServeHTTP(w, req)
 
 	es := httppb.NewEntrySet()
-	if should.NoError(response.GetDataFromBody(w.Result().Body, es)) {
+	if should.NoError(response.GetMessageFromBody(w.Result().Body, es)) {
 		should.NotNil(es.GetEntry("/test", "GET"))
 	}
 }
@@ -208,7 +208,7 @@ func TestAPIRootOrderOK(t *testing.T) {
 	r.ServeHTTP(w, req)
 
 	es := httppb.NewEntrySet()
-	if should.NoError(response.GetDataFromBody(w.Result().Body, es)) {
+	if should.NoError(response.GetMessageFromBody(w.Result().Body, es)) {
 		should.Equal("/test1", es.Items[0].Path)
 		should.Equal("/test2", es.Items[1].Path)
 		should.Equal("/test3", es.Items[2].Path)

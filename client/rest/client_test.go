@@ -17,7 +17,7 @@ func TestClient(t *testing.T) {
 	resp := make(map[string]any)
 	err := c.Group("group1").Get("host22").
 		Do(context.Background()).
-		Into(response.NewData(&resp))
+		Into(response.NewMessage(&resp))
 	if err != nil {
 		t.Fatal(err)
 	}

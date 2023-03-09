@@ -35,7 +35,7 @@ func Failed(w http.ResponseWriter, err error, opts ...Option) {
 		httpCode = http.StatusInternalServerError
 	}
 
-	resp := Data{
+	resp := Message{
 		Code:      &errCode,
 		Namespace: ns,
 		Reason:    reason,
@@ -67,7 +67,7 @@ func Failed(w http.ResponseWriter, err error, opts ...Option) {
 // Success use to response success data
 func Success(w http.ResponseWriter, data interface{}, opts ...Option) {
 	c := 0
-	resp := Data{
+	resp := Message{
 		Code:    &c,
 		Message: "",
 		Data:    data,

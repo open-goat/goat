@@ -9,14 +9,14 @@ import (
 )
 
 // GetDataFromBody 获取body中的数据
-func GetDataFromBody(body io.ReadCloser, v interface{}) error {
+func GetMessageFromBody(body io.ReadCloser, v interface{}) error {
 	defer body.Close()
 
 	bytesB, err := io.ReadAll(body)
 	if err != nil {
 		return err
 	}
-	data := NewData(v)
+	data := NewMessage(v)
 
 	if err := json.Unmarshal(bytesB, data); err != nil {
 		return err

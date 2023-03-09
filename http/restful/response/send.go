@@ -36,7 +36,7 @@ func Failed(w *restful.Response, err error, opts ...response.Option) {
 		httpCode = http.StatusInternalServerError
 	}
 
-	resp := response.Data{
+	resp := response.Message{
 		Code:      &errCode,
 		Namespace: ns,
 		Reason:    reason,

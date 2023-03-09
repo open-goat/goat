@@ -2,17 +2,17 @@ package response
 
 import "fmt"
 
-// NewData new实例
-func NewData(data interface{}) *Data {
+// NewMessage new实例
+func NewMessage(data interface{}) *Message {
 	code := -1
-	return &Data{
+	return &Message{
 		Code: &code,
 		Data: data,
 	}
 }
 
 // Data to be used by controllers.
-type Data struct {
+type Message struct {
 	RequestId string      `json:"request_id,omitempty"` // 请求Id
 	Code      *int        `json:"code"`                 // 自定义返回码  0:表示正常
 	Type      string      `json:"type,omitempty"`       // 数据类型, 可以缺省
@@ -24,7 +24,7 @@ type Data struct {
 	Meta      interface{} `json:"meta,omitempty"`       // 数据meta
 }
 
-func (d *Data) Error() error {
+func (d *Message) Error() error {
 	if d.Code == nil {
 		return nil
 	}
@@ -37,37 +37,37 @@ func (d *Data) Error() error {
 
 // Option configures how we set up the data.
 type Option interface {
-	Apply(*Data)
+	Apply(*Message)
 }
 
-func newFuncOption(f func(*Data)) Option {
+func newFuncOption(f func(*Message)) Option {
 	return &funcOption{
 		f: f,
 	}
 }
 
 type funcOption struct {
-	f func(*Data)
+	f func(*Message)
 }
 
-func (fdo *funcOption) Apply(do *Data) {
+func (fdo *funcOption) Apply(do *Message) {
 	fdo.f(do)
 }
 
 func WithRequestId(rid string) Option {
-	return newFuncOption(func(o *Data) {
+	return newFuncOption(func(o *Message) {
 		o.RequestId = rid
 	})
 }
 
 func WithRecommend(msg string) Option {
-	return newFuncOption(func(o *Data) {
+	return newFuncOption(func(o *Message) {
 		o.Recommend = msg
 	})
 }
 
 func WithMeta(meta interface{}) Option {
-	return newFuncOption(func(o *Data) {
+	return newFuncOption(func(o *Message) {
 		o.Meta = meta
 	})
 }
