@@ -39,8 +39,8 @@ func Failed(w http.ResponseWriter, err error, opts ...Option) {
 		Code:      &errCode,
 		Namespace: ns,
 		Reason:    reason,
-		Message:   err.Error(),
-		Data:      data,
+		Describe:  err.Error(),
+		Message:   data,
 		Meta:      meta,
 	}
 
@@ -68,9 +68,9 @@ func Failed(w http.ResponseWriter, err error, opts ...Option) {
 func Success(w http.ResponseWriter, data interface{}, opts ...Option) {
 	c := 0
 	resp := Message{
-		Code:    &c,
-		Message: "",
-		Data:    data,
+		Code:     &c,
+		Describe: "",
+		Message:  data,
 	}
 
 	for _, opt := range opts {

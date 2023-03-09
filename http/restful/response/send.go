@@ -40,8 +40,8 @@ func Failed(w *restful.Response, err error, opts ...response.Option) {
 		Code:      &errCode,
 		Namespace: ns,
 		Reason:    reason,
-		Message:   err.Error(),
-		Data:      data,
+		Describe:  err.Error(),
+		Message:   data,
 		Meta:      meta,
 	}
 
