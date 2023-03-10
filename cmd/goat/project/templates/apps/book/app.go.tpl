@@ -4,46 +4,66 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/go-playground/validator/v10"
+	"github.com/go-playground/validator"
 	"github.com/imdario/mergo"
 	"github.com/opengoats/goat/http/request"
-	pb_request "github.com/opengoats/goat/pb/request"
+	request1 "github.com/opengoats/goat/pb/request"
 	"github.com/rs/xid"
-)
-
-const (
-	AppName = "book"
 )
 
 var (
 	validate = validator.New()
 )
 
-func NewCreateBookRequest() *CreateBookRequest {
-	return &CreateBookRequest{}
-}
+const (
+	AppName = "book"
+)
 
-func NewBook(req *CreateBookRequest) (*Book, error) {
-	if err := req.Validate(); err != nil {
-		return nil, err
+func (r *CreateBookRequest) Validate() error {
+	if err := validate.Struct(r); err != nil {
+		return err
+	} else {
+		return nil
 	}
-
-	return &Book{
-		Base: &base.Base{
-			Id:       xid.New().String(),
-			CreateAt: time.Now().UnixMicro(),
-		},
-		Data: req,
-	}, nil
 }
 
-func (req *CreateBookRequest) Validate() error {
-	return validate.Struct(req)
+func (r *QueryBookRequest) Validate() error {
+	if err := validate.Struct(r); err != nil {
+		return err
+	} else {
+		return nil
+	}
 }
 
-func NewBookSet() *BookSet {
-	return &BookSet{
-		Items: []*Book{},
+func (r *DescribeBookRequest) Validate() error {
+	if err := validate.Struct(r); err != nil {
+		return err
+	} else {
+		return nil
+	}
+}
+
+func (r *UpdateBookRequest) Validate() error {
+	if err := validate.Struct(r); err != nil {
+		return err
+	} else {
+		return nil
+	}
+}
+
+func (r *DeleteBookRequest) Validate() error {
+	if err := validate.Struct(r); err != nil {
+		return err
+	} else {
+		return nil
+	}
+}
+
+func (r *Book) Validate() error {
+	if err := validate.Struct(r); err != nil {
+		return err
+	} else {
+		return nil
 	}
 }
 
@@ -57,16 +77,40 @@ func NewDefaultBook() *Book {
 	}
 }
 
-func (i *Book) Update(req *UpdateBookRequest) {
-	i.Base.UpdateAt = time.Now().UnixMicro()
-	i.Base.UpdateBy = req.UpdateBy
-	i.Data = req.Data
+func NewBook() *Book {
+	return &Book{
+		Id:       xid.New().String(),
+		Status:   1,
+		CreateAt: time.Now().UnixMicro(),
+		CreateBy: "",
+	}
 }
 
-func (i *Book) Patch(req *UpdateBookRequest) error {
-	i.Base.UpdateAt = time.Now().UnixMicro()
-	i.Base.UpdateBy = req.UpdateBy
-	return mergo.MergeWithOverwrite(i.Data, req.Data)
+func NewCreateBookRequest() *CreateBookRequest {
+	return &CreateBookRequest{}
+}
+
+func NewQueryBookRequest(r *http.Request) *QueryBookRequest {
+	return &QueryBookRequest{
+		Page:     request.NewPageRequestFromHTTP(r),
+		BookName: "%",
+		Author:   "%",
+	}
+}
+
+func NewQueryBookRequestFortest() *QueryBookRequest {
+	return &QueryBookRequest{
+		Page:     request.NewDefaultPageRequest(),
+		BookName: "%",
+		Author:   "%",
+	}
+}
+
+func NewBookSet() *BookSet {
+	return &BookSet{
+		Total: 0,
+		Items: []*Book{},
+	}
 }
 
 func NewDescribeBookRequest(id string) *DescribeBookRequest {
@@ -75,26 +119,24 @@ func NewDescribeBookRequest(id string) *DescribeBookRequest {
 	}
 }
 
-func NewQueryBookRequest() *QueryBookRequest {
-	return &QueryBookRequest{
-		Page: request.NewDefaultPageRequest(),
-	}
+func (b *Book) Update(req *UpdateBookRequest) {
+	b.UpdateAt = time.Now().UnixMicro()
+	b.Status = 2
+	b.UpdateBy = ""
+	b.Data = req.Data
 }
 
-func NewQueryBookRequestFromHTTP(r *http.Request) *QueryBookRequest {
-	qs := r.URL.Query()
-
-	return &QueryBookRequest{
-		Page:     request.NewPageRequestFromHTTP(r),
-		Keywords: qs.Get("keywords"),
-	}
+func (b *Book) Patch(req *UpdateBookRequest) error {
+	b.UpdateAt = time.Now().UnixMicro()
+	b.Status = 2
+	b.UpdateBy = ""
+	return mergo.MergeWithOverwrite(b.Data, req.Data)
 }
 
 func NewPutBookRequest(id string) *UpdateBookRequest {
 	return &UpdateBookRequest{
 		Id:         id,
-		UpdateMode: pb_request.UpdateMode_PUT,
-		UpdateAt:   time.Now().UnixMicro(),
+		UpdateMode: request1.UpdateMode_PUT,
 		Data:       NewCreateBookRequest(),
 	}
 }
@@ -102,8 +144,7 @@ func NewPutBookRequest(id string) *UpdateBookRequest {
 func NewPatchBookRequest(id string) *UpdateBookRequest {
 	return &UpdateBookRequest{
 		Id:         id,
-		UpdateMode: pb_request.UpdateMode_PATCH,
-		UpdateAt:   time.Now().UnixMicro(),
+		UpdateMode: request1.UpdateMode_PATCH,
 		Data:       NewCreateBookRequest(),
 	}
 }

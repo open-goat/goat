@@ -23,7 +23,7 @@ func TestBookQuery(t *testing.T) {
 	if should.NoError(err) {
 		resp, err := c.Book().QueryBook(
 			context.Background(),
-			book.NewQueryBookRequest(),
+			book.NewQueryBookRequestFortest(),
 		)
 		should.NoError(err)
 		fmt.Println(resp.Items)

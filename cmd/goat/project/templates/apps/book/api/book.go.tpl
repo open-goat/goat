@@ -1,94 +1,110 @@
 package api
 
 import (
-	"net/http"
+	"fmt"
 
-	"github.com/opengoats/goat/http/context"
-	"github.com/opengoats/goat/http/request"
+	"github.com/emicklei/go-restful/v3"
+	"github.com/opengoats/cmdb/apps/book"
 	"github.com/opengoats/goat/http/response"
-
-	"{{.PKG}}/apps/book"
 )
 
-func (h *handler) CreateBook(w http.ResponseWriter, r *http.Request) {
+func (h *handler) CreateBook(r *restful.Request, w *restful.Response) {
+
 	req := book.NewCreateBookRequest()
 
-	if err := request.GetDataFromRequest(r, req); err != nil {
-		response.Failed(w, err)
+	if err := r.ReadEntity(req); err != nil {
+		h.log.Named("createHost").Error(err)
+		response.Failed(w.ResponseWriter, fmt.Errorf("require error"))
 		return
 	}
 
-	set, err := h.service.CreateBook(r.Context(), req)
+	_, err := h.service.CreateBook(r.Request.Context(), req)
 	if err != nil {
-		response.Failed(w, err)
+		response.Failed(w.ResponseWriter, err)
 		return
 	}
-	response.Success(w, set)
+	response.Success(w.ResponseWriter, "create success")
 }
 
-func (h *handler) QueryBook(w http.ResponseWriter, r *http.Request) {
-	req := book.NewQueryBookRequestFromHTTP(r)
-	set, err := h.service.QueryBook(r.Context(), req)
+func (h *handler) QueryBook(r *restful.Request, w *restful.Response) {
+
+	// 默认查询查询
+	req := book.NewQueryBookRequest(r.Request)
+	qs := r.Request.URL.Query()
+
+	if qs.Get("book_name") != "" {
+		req.BookName = qs.Get("book_name")
+	}
+	if qs.Get("author") != "" {
+		req.BookName = qs.Get("author")
+	}
+
+	// 数据查询
+	set, err := h.service.QueryBook(r.Request.Context(), req)
 	if err != nil {
-		response.Failed(w, err)
+		h.log.Named("QueryBook").Error(err)
+		response.Failed(w.ResponseWriter, fmt.Errorf("require error"))
 		return
 	}
-	response.Success(w, set)
+
+	response.Success(w.ResponseWriter, set)
 }
 
-func (h *handler) DescribeBook(w http.ResponseWriter, r *http.Request) {
-	ctx := context.GetContext(r)
-	req := book.NewDescribeBookRequest(ctx.PS.ByName("id"))
-	ins, err := h.service.DescribeBook(r.Context(), req)
+func (h *handler) DescribeBook(r *restful.Request, w *restful.Response) {
+	req := book.NewDescribeBookRequest(r.PathParameter("id"))
+	ins, err := h.service.DescribeBook(r.Request.Context(), req)
 	if err != nil {
-		response.Failed(w, err)
+		h.log.Named("DescribeBook").Error(err)
+		response.Failed(w.ResponseWriter, fmt.Errorf("require error"))
 		return
 	}
 
-	response.Success(w, ins)
+	response.Success(w.ResponseWriter, ins)
 }
 
-func (h *handler) PutBook(w http.ResponseWriter, r *http.Request) {
-	ctx := context.GetContext(r)
-	req := book.NewPutBookRequest(ctx.PS.ByName("id"))
+func (h *handler) PutBook(r *restful.Request, w *restful.Response) {
+	req := book.NewPutBookRequest(r.PathParameter("id"))
 
-	if err := request.GetDataFromRequest(r, req.Data); err != nil {
-		response.Failed(w, err)
+	if err := r.ReadEntity(req.Data); err != nil {
+		h.log.Named("PutBook").Error(err)
+		response.Failed(w.ResponseWriter, fmt.Errorf("update error"))
 		return
 	}
 
-	set, err := h.service.UpdateBook(r.Context(), req)
+	ins, err := h.service.UpdateBook(r.Request.Context(), req)
 	if err != nil {
-		response.Failed(w, err)
+		h.log.Named("PutBook").Error(err)
+		response.Failed(w.ResponseWriter, fmt.Errorf("update error"))
 		return
 	}
-	response.Success(w, set)
+	response.Success(w.ResponseWriter, ins)
 }
 
-func (h *handler) PatchBook(w http.ResponseWriter, r *http.Request) {
-	ctx := context.GetContext(r)
-	req := book.NewPatchBookRequest(ctx.PS.ByName("id"))
+func (h *handler) PatchBook(r *restful.Request, w *restful.Response) {
+	req := book.NewPatchBookRequest(r.PathParameter("id"))
 
-	if err := request.GetDataFromRequest(r, req.Data); err != nil {
-		response.Failed(w, err)
+	if err := r.ReadEntity(req.Data); err != nil {
+		h.log.Named("PatchBook").Error(err)
+		response.Failed(w.ResponseWriter, fmt.Errorf("update error"))
 		return
 	}
 
-	set, err := h.service.UpdateBook(r.Context(), req)
+	ins, err := h.service.UpdateBook(r.Request.Context(), req)
 	if err != nil {
-		response.Failed(w, err)
+		h.log.Named("PatchBook").Error(err)
+		response.Failed(w.ResponseWriter, fmt.Errorf("update error"))
 		return
 	}
-	response.Success(w, set)
+	response.Success(w.ResponseWriter, ins)
 }
 
-func (h *handler) DeleteBook(w http.ResponseWriter, r *http.Request) {
-	ctx := context.GetContext(r)
-	req := book.NewDeleteBookRequestWithID(ctx.PS.ByName("id"))
-	set, err := h.service.DeleteBook(r.Context(), req)
+func (h *handler) DeleteBook(r *restful.Request, w *restful.Response) {
+	req := book.NewDeleteBookRequestWithID(r.PathParameter("id"))
+	_, err := h.service.DeleteBook(r.Request.Context(), req)
 	if err != nil {
-		response.Failed(w, err)
+		h.log.Named("DeleteBook").Error(err)
+		response.Failed(w.ResponseWriter, fmt.Errorf("delete error"))
 		return
 	}
-	response.Success(w, set)
+	response.Success(w.ResponseWriter, "create success")
 }

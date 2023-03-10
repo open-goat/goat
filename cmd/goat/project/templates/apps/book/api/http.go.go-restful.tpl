@@ -41,25 +41,25 @@ func (h *handler) Registry(ws *restful.WebService) {
 		Doc("create a book").
 		Metadata(restfulspec.KeyOpenAPITags, tags).
 		Reads(book.CreateBookRequest{}).
-		Writes(response.NewData(book.Book{})))
+		Writes(response.NewMessage(book.Book{})))
 
 	ws.Route(ws.GET("/").To(h.QueryBook).
 		Doc("get all books").
 		Metadata(restfulspec.KeyOpenAPITags, tags).
 		Metadata("action", "list").
 		Reads(book.CreateBookRequest{}).
-		Writes(response.NewData(book.BookSet{})).
+		Writes(response.NewMessage(book.BookSet{})).
 		Returns(200, "OK", book.BookSet{}))
 
 	ws.Route(ws.GET("/{id}").To(h.DescribeBook).
 		Doc("get a book").
 		Param(ws.PathParameter("id", "identifier of the book").DataType("integer").DefaultValue("1")).
 		Metadata(restfulspec.KeyOpenAPITags, tags).
-		Writes(response.NewData(book.Book{})).
-		Returns(200, "OK", response.NewData(book.Book{})).
+		Writes(response.NewMessage(book.Book{})).
+		Returns(200, "OK", response.NewMessage(book.Book{})).
 		Returns(404, "Not Found", nil))
 
-	ws.Route(ws.PUT("/{id}").To(h.UpdateBook).
+	ws.Route(ws.PUT("/{id}").To(h.PutBook).
 		Doc("update a book").
 		Param(ws.PathParameter("id", "identifier of the book").DataType("string")).
 		Metadata(restfulspec.KeyOpenAPITags, tags).
