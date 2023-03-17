@@ -45,7 +45,7 @@ func (h *handler) DescribeBook(r *restful.Request, w *restful.Response) {
 	response.Success(w.ResponseWriter, ins)
 }
 
-func (h *handler) UpdateBook(r *restful.Request, w *restful.Response) {
+func (h *handler) PutBook(r *restful.Request, w *restful.Response) {
 	req := book.NewPutBookRequest(r.PathParameter("id"))
 
 	if err := r.ReadEntity(req.Data); err != nil {

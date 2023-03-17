@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/go-playground/validator"
+	"github.com/go-playground/validator/v10"
 	"github.com/imdario/mergo"
 	"github.com/opengoats/goat/http/request"
 	request1 "github.com/opengoats/goat/pb/request"
