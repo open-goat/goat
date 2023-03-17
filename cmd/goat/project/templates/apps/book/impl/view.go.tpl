@@ -18,7 +18,7 @@ func (s *service) CreateBook(ctx context.Context, req *book.CreateBookRequest) (
 	// 请求体校验
 	if err := req.Validate(); err != nil {
 		s.log.Named("CreateBook").Error(err)
-		return nil, err
+		return nil, exception.NewBadRequest("validate create book error, %s", err)
 	}
 	// book结构体赋值
 	ins := book.NewBook()
@@ -28,7 +28,7 @@ func (s *service) CreateBook(ctx context.Context, req *book.CreateBookRequest) (
 	tx, err := s.db.BeginTx(ctx, nil)
 	if err != nil {
 		s.log.Named("CreateBook").Error(err)
-		return nil, err
+		return nil, exception.NewInternalServerError("start tx err %s", err)
 	}
 
 	// 1. 无报错，则Commit 事务
@@ -50,14 +50,14 @@ func (s *service) CreateBook(ctx context.Context, req *book.CreateBookRequest) (
 	rstmt, err := tx.PrepareContext(ctx, insertBook)
 	if err != nil {
 		s.log.Named("CreateBook").Error(err)
-		return nil, err
+		return nil, exception.NewInternalServerError("insert table book err %s", err)
 	}
 	defer rstmt.Close()
 
 	_, err = rstmt.ExecContext(ctx, ins.Id, ins.Status, ins.CreateAt, ins.CreateBy, ins.Data.BookName, ins.Data.Author)
 	if err != nil {
 		s.log.Named("CreateBook").Error(err)
-		return nil, err
+		return nil, exception.NewInternalServerError("insert table book err %s", err)
 	}
 
 	return ins, nil
@@ -68,7 +68,7 @@ func (s *service) QueryBook(ctx context.Context, req *book.QueryBookRequest) (*b
 	// 请求体校验
 	if err := req.Validate(); err != nil {
 		s.log.Named("QueryBook").Error(err)
-		return nil, err
+		return nil, exception.NewBadRequest("validate create book error, %s", err)
 	}
 
 	// 数据库插入参数
@@ -79,14 +79,14 @@ func (s *service) QueryBook(ctx context.Context, req *book.QueryBookRequest) (*b
 	stmt, err := s.db.PrepareContext(ctx, queryBook)
 	if err != nil {
 		s.log.Named("QueryBook").Error(err)
-		return nil, err
+		return nil, exception.NewInternalServerError("query table book err %s", err)
 	}
 	defer stmt.Close()
 
 	rows, err := stmt.QueryContext(ctx, args...)
 	if err != nil {
 		s.log.Named("QueryBook").Error(err)
-		return nil, err
+		return nil, exception.NewInternalServerError("query table book err %s", err)
 	}
 	defer rows.Close()
 
@@ -99,7 +99,7 @@ func (s *service) QueryBook(ctx context.Context, req *book.QueryBookRequest) (*b
 
 		if err != nil {
 			s.log.Named("QueryBook").Error(err)
-			return nil, err
+			return nil, exception.NewInternalServerError("query table book err %s", err)
 		}
 		set.Add(ins)
 	}
@@ -115,7 +115,7 @@ func (s *service) DescribeBook(ctx context.Context, req *book.DescribeBookReques
 	// 请求体校验
 	if err := req.Validate(); err != nil {
 		s.log.Named("DescribeBook").Error(err)
-		return nil, err
+		return nil, exception.NewBadRequest("validate create book error, %s", err)
 	}
 
 	args := []interface{}{req.Id}
@@ -124,7 +124,7 @@ func (s *service) DescribeBook(ctx context.Context, req *book.DescribeBookReques
 	s.log.Named("DescribeBook").Debugf("sql: %s; %v", describeBook, args)
 	stmt, err := s.db.PrepareContext(ctx, describeBook)
 	if err != nil {
-		return nil, err
+		return nil, exception.NewInternalServerError("describe book err %s", err)
 	}
 	defer stmt.Close()
 
@@ -136,7 +136,7 @@ func (s *service) DescribeBook(ctx context.Context, req *book.DescribeBookReques
 
 	if err != nil {
 		s.log.Named("QueryBook").Error(err)
-		return nil, err
+		return nil, exception.NewInternalServerError("describe book err %s", err)
 	}
 	return ins, nil
 }
@@ -145,13 +145,13 @@ func (s *service) UpdateBook(ctx context.Context, req *book.UpdateBookRequest) (
 	// 请求体校验
 	if err := req.Validate(); err != nil {
 		s.log.Named("UpdateBook").Error(err)
-		return nil, err
+		return nil, exception.NewBadRequest("validate create book error, %s", err)
 	}
 
 	// 验证更新id,查询不到直接返回
 	ins, err := s.DescribeBook(ctx, &book.DescribeBookRequest{Id: req.Id})
 	if err != nil {
-		return nil, err
+		return nil, exception.NewBadRequest("id not exist, %s", err)
 	}
 
 	// 根据更新模式进行数据库操作
@@ -161,21 +161,21 @@ func (s *service) UpdateBook(ctx context.Context, req *book.UpdateBookRequest) (
 	case request.UpdateMode_PATCH:
 		if err := ins.Patch(req); err != nil {
 			s.log.Named("UpdateBook").Error(err)
-			return nil, err
+			return nil, exception.NewInternalServerError("update book err %s", err)
 		}
 	}
 
 	// 校验更新后数据合法性
 	if err := ins.Validate(); err != nil {
 		s.log.Named("UpdateBook").Error(err)
-		return nil, err
+		return nil, exception.NewInternalServerError("update book err %s", err)
 	}
 
 	// 更新数据库
 	// 开启一个事务
 	tx, err := s.db.BeginTx(ctx, nil)
 	if err != nil {
-		return nil, err
+		return nil, exception.NewInternalServerError("update book err %s", err)
 	}
 
 	// 通过Defer处理事务提交方式
@@ -197,7 +197,7 @@ func (s *service) UpdateBook(ctx context.Context, req *book.UpdateBookRequest) (
 	bookStmt, err := tx.PrepareContext(ctx, updateBook)
 	_, err = bookStmt.ExecContext(ctx, ins.UpdateAt, ins.UpdateBy, ins.Data.BookName, ins.Data.Author, ins.Id)
 	if err != nil {
-		return nil, err
+		return nil, exception.NewInternalServerError("update book err %s", err)
 	}
 	defer bookStmt.Close()
 
@@ -208,19 +208,19 @@ func (s *service) DeleteBook(ctx context.Context, req *book.DeleteBookRequest) (
 	// 请求体校验
 	if err := req.Validate(); err != nil {
 		s.log.Named("DeleteBook").Error(err)
-		return nil, err
+		return nil, exception.NewBadRequest("validate create book error, %s", err)
 	}
 
 	// 验证更新id,查询不到直接返回
 	ins, err := s.DescribeBook(ctx, &book.DescribeBookRequest{Id: req.Id})
 	if err != nil {
-		return nil, err
+		return nil, exception.NewBadRequest("id not exist, %s", err)
 	}
 
 	// 开启一个事务
 	tx, err := s.db.BeginTx(ctx, nil)
 	if err != nil {
-		return nil, err
+		return nil, exception.NewInternalServerError("delete book err %s", err)
 	}
 
 	// 通过Defer处理事务提交方式
@@ -241,13 +241,13 @@ func (s *service) DeleteBook(ctx context.Context, req *book.DeleteBookRequest) (
 	s.log.Named("DeleteBook").Debugf("sql: %s", deleteBook)
 	bookStmt, err := tx.PrepareContext(ctx, deleteBook)
 	if err != nil {
-		return nil, err
+		return nil, exception.NewInternalServerError("delete book err %s", err)
 	}
 	defer bookStmt.Close()
 
 	_, err = bookStmt.ExecContext(ctx, req.Id)
 	if err != nil {
-		return nil, err
+		return nil, exception.NewInternalServerError("delete book err %s", err)
 	}
 
 	return ins, nil
