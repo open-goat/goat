@@ -3,7 +3,7 @@ package impl
 const (
 	insertBook = `INSERT INTO books(id,status,create_at,create_by,book_name,author) VALUES (?,?,?,?,?,?);`
 
-	queryBook = `SELECT * FROM books Where status > 0 AND book_name Like ? AND author Like ? LIMIT ?,?`
+	queryBook = `SELECT * FROM books Where status > 0 AND (book_name Like ? OR author Like ?) LIMIT ?,?`
 
 	describeBook = `SELECT * FROM books Where status > 0 AND id = ?`
 

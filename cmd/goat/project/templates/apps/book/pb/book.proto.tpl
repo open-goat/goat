@@ -59,12 +59,9 @@ message QueryBookRequest {
     // 分页参数
     // @gotags: json:"page" 
     opengoats.goat.page.PageRequest page = 1;
-    // 书名
-    // @gotags: json:"name" validate:"max=10"
-    string book_name = 2;  
-    // 作者
-    // @gotags: json:"author" validate:"max=10"
-    string author = 3;  
+    // 关键字参数
+    // @gotags: json:"kws" bson:"keywords" validate:"max=10"
+    string keywords = 2;  
 }
 
 
